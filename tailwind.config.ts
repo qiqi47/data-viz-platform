@@ -13,9 +13,10 @@ export default {
         extend: {
             colors: {
                 border: '#242424',
-                hover: '#525252',
+                hover: '#262525',
                 primary: '#0e0d0d',
                 secondary: '#C8E972',
+                'primary-dark': '#2563EB',
             },
             borderRadius: {
                 lg: '10px',
