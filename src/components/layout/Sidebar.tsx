@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import bell from '../assets/icons/bell.svg';
-import home from '../assets/icons/home.svg';
-import clock from '../assets/icons/clock.svg';
-import cloud from '../assets/icons/cloud.svg';
-import settings from '../assets/icons/settings.svg';
-import user from '../assets/icons/user.svg';
-import menu from '../assets/icons/menu.svg';
+import bell from '../../assets/icons/bell.svg';
+import home from '../../assets/icons/home.svg';
+import clock from '../../assets/icons/clock.svg';
+import cloud from '../../assets/icons/cloud.svg';
+import settings from '../../assets/icons/settings.svg';
+import user from '../../assets/icons/user.svg';
+import menu from '../../assets/icons/menu.svg';
 export function Sidebar() {
     const [current, setCurrent] = useState('Home');
     const icons = [

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChargingStationDashboard } from '../components/ChargingStationDashboard';
+import { ChargingStationDashboard } from '../components/ChargingStation/ChargingStationDashboard';
 
 const Dashboard = () => {
     return (
