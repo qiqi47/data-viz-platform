@@ -7,7 +7,7 @@ import { Parking } from '../Parking';
 import { tabType } from '../../types/Types';
 
 export function ChargingStationDashboard() {
-    const [currentTab, setCurrentTab] = useState('charging-stations');
+    const [currentTab, setCurrentTab] = useState<string>('charging-stations');
     const tabs: tabType[] = [
         {
             label: 'Charging Stations',

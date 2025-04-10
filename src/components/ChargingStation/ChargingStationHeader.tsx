@@ -1,8 +1,13 @@
 import flash from '../../assets/icons/flash.svg';
 import history from '../../assets/icons/history.svg';
 import share from '../../assets/icons/share.svg';
+import { ChargingStationHeaderProps } from '../../types/Types';
+import { useCallback } from 'react';
 
-const ChargingStationHeader = () => {
+const ChargingStationHeader = ({ openPanel, setOpenPanel }: ChargingStationHeaderProps) => {
+    const handleOpenPanel = useCallback(() => {
+        setOpenPanel(!openPanel);
+    }, [openPanel]);
     return (
         <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -17,6 +22,7 @@ const ChargingStationHeader = () => {
                     <img src={history} alt="history" />
                 </button>
                 <button
+                    onClick={() => handleOpenPanel()}
                     className="rounded-[var(--rounded-border)] px-4 place-items-center 
                         bg-[var(--hover-bg)] border border-[var(--border-color)]"
                 >

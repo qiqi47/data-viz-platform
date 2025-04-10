@@ -9,7 +9,7 @@ import menu from '../../assets/icons/menu.svg';
 import { iconType } from '../../types/Types';
 
 export function Sidebar() {
-    const [current, setCurrent] = useState('Home');
+    const [current, setCurrent] = useState<string>('Home');
     const icons: iconType[] = [
         {
             src: home,

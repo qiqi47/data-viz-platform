@@ -2,7 +2,7 @@ import { ChevronDown, ChevronUp, MoreHorizontal } from 'lucide-react';
 import { useState } from 'react';
 import star from '../../assets/icons/star.svg';
 export function ScenarioResults() {
-    const [expanded, setExpanded] = useState(true);
+    const [expanded, setExpanded] = useState<boolean>(true);
 
     return (
         <div className="mb-8">
