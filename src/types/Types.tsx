@@ -14,8 +14,3 @@ export interface tabType {
     label: string;
     value: string;
 }
-
-export interface ChargingStationHeaderProps {
-    openPanel: boolean;
-    setOpenPanel: (openPanel: boolean) => void;
-}
