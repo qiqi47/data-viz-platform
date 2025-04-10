@@ -1,11 +1,11 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import App from './App.tsx';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import Login from './Login.tsx';
 import AuthRoute from './AuthRoute.tsx';
+import Dashboard from './screens/Dashboard.tsx';
 const firebaseConfig = {
     apiKey: 'AIzaSyBPZ1GoTrQKlPp_OMln_wO-nToSMtEYdnY',
     authDomain: 'answerai-93907.firebaseapp.com',
@@ -25,7 +25,7 @@ createRoot(document.getElementById('root')!).render(
                     path="/"
                     element={
                         <AuthRoute>
-                            <App />
+                            <Dashboard />
                         </AuthRoute>
                     }
                 />
