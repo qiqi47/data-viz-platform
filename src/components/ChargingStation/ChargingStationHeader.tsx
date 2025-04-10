@@ -4,7 +4,7 @@ import share from '../../assets/icons/share.svg';
 
 const ChargingStationHeader = () => {
     return (
-        <div className="flex items-center justify-between mb-8 px-8 py-6">
+        <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
                 <img src={flash} alt="flash" className="h-[30px] w-[30px] text-white" />
                 <h1 className="font-bold text-white">Charging Station</h1>

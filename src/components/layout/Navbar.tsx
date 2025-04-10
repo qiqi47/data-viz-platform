@@ -1,11 +1,5 @@
 import { Search } from 'lucide-react';
-
-interface NavbarProps {
-    currentTab: string;
-    onTabChange: (tab: string) => void;
-    tabs: { label: string; value: string }[];
-}
-
+import { NavbarProps } from '../../types/Types';
 export function Navbar({ currentTab, onTabChange, tabs }: NavbarProps) {
     return (
         <div className="h-16 bg-[--theme-color] flex items-center justify-between px-6">

@@ -46,6 +46,7 @@ button {
     --hover-bg: #262525;
     --hover-border: #525252;
     --rounded-border: 10px;
+    --scenario-results-text: #c8e972;
 }
 
 button:hover {

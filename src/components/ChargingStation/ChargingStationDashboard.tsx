@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Navbar } from '../layout/Navbar';
 import { Sidebar } from '../layout/Sidebar';
 import { ChargingStations } from './ChargingStations';
 import { FleetSizing } from '../FleetSizing';
 import { Parking } from '../Parking';
+import { tabType } from '../../types/Types';
 
 export function ChargingStationDashboard() {
     const [currentTab, setCurrentTab] = useState('charging-stations');
-    const tabs = [
+    const tabs: tabType[] = [
         {
             label: 'Charging Stations',
             value: 'charging-stations',
@@ -21,7 +22,7 @@ export function ChargingStationDashboard() {
             value: 'parking',
         },
     ];
-    const renderContent = () => {
+    const renderContent = useCallback(() => {
         switch (currentTab) {
             case 'charging-stations':
                 return <ChargingStations />;
@@ -32,7 +33,7 @@ export function ChargingStationDashboard() {
             default:
                 return <ChargingStations />;
         }
-    };
+    }, [currentTab]);
 
     return (
         <div className="flex h-screen bg-[#0e0d0d] text-white overflow-hidden">

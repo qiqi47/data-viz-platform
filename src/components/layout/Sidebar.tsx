@@ -6,9 +6,11 @@ import cloud from '../../assets/icons/cloud.svg';
 import settings from '../../assets/icons/settings.svg';
 import user from '../../assets/icons/user.svg';
 import menu from '../../assets/icons/menu.svg';
+import { iconType } from '../../types/Types';
+
 export function Sidebar() {
     const [current, setCurrent] = useState('Home');
-    const icons = [
+    const icons: iconType[] = [
         {
             src: home,
             label: 'Home',
