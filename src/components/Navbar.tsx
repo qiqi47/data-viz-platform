@@ -1,22 +1,12 @@
 import { Search } from 'lucide-react';
-import { useState } from 'react';
 
-export function Navbar() {
-    const [currentTab, setCurrentTab] = useState('charging-stations');
-    const tabs = [
-        {
-            label: 'Charging Stations',
-            value: 'charging-stations',
-        },
-        {
-            label: 'Fleet Sizing',
-            value: 'fleet-sizing',
-        },
-        {
-            label: 'Parking',
-            value: 'parking',
-        },
-    ];
+interface NavbarProps {
+    currentTab: string;
+    onTabChange: (tab: string) => void;
+    tabs: { label: string; value: string }[];
+}
+
+export function Navbar({ currentTab, onTabChange, tabs }: NavbarProps) {
     return (
         <div className="h-16 bg-[--theme-color] flex items-center justify-between px-6">
             <div className="flex flex-row space-x-2">
@@ -24,7 +14,7 @@ export function Navbar() {
                     return (
                         <button
                             key={key}
-                            onClick={() => setCurrentTab(item.value)}
+                            onClick={() => onTabChange(item.value)}
                             className={`${
                                 currentTab === item.value
                                     ? 'bg-[var(--hover-bg)] outline outline-[var(--border-color)]'
