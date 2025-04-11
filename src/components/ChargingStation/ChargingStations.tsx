@@ -1,6 +1,5 @@
 import ChargingStationHeader from './ChargingStationHeader';
 import { ScenarioResults } from './ScenarioResults';
-import { useState } from 'react';
 export function ChargingStations() {
     return (
         <div>

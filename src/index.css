@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
 /* 
 ---break---
 */
@@ -51,7 +51,8 @@ button {
     --hover-bg: #262525;
     --hover-border: #525252;
     --rounded-border: 10px;
-    --scenario-results-text: #c8e972;
+    --green: #282e16;
+    --green-border: #c9ff3b;
     --radius: 0.625rem;
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
@@ -87,7 +88,7 @@ button {
 }
 
 button:hover {
-    outline: 1px solid var(--border-color);
+    outline: 2px solid var(--border-color);
     background-color: var(--hover-bg);
     cursor: pointer;
 }
@@ -193,10 +194,57 @@ button:focus-visible {
 ---break---
 */
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+    body {
+        @apply bg-background text-foreground;
     }
+}
+
+.button {
+    border-radius: var(--rounded-border);
+    display: grid;
+    place-items: center;
+}
+
+.greenButton {
+    border-radius: var(--rounded-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--green-border);
+    background-color: var(--green);
+    outline: 1px solid var(--green-border);
+    height: 36px;
+}
+
+.greenButton:hover {
+    background-color: var(--green-hover);
+    outline: 1px solid var(--green-border);
+}
+
+.buttonSelected {
+    border-radius: var(--rounded-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--hover-bg);
+    outline: 1px solid var(--border-color);
+}
+
+.input {
+    background-color: var(--hover-bg);
+    color: white;
+    padding-left: 2.5rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.input:focus {
+    outline: none;
+    outline: 1px solid var(--border-color);
 }

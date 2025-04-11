@@ -1,6 +1,7 @@
 import flash from '../../assets/icons/flash.svg';
 import history from '../../assets/icons/history.svg';
 import share from '../../assets/icons/share.svg';
+import Panel from './Panel';
 
 const ChargingStationHeader = () => {
     return (
@@ -16,12 +17,7 @@ const ChargingStationHeader = () => {
                 >
                     <img src={history} alt="history" />
                 </button>
-                <button
-                    className="rounded-[var(--rounded-border)] px-4 place-items-center 
-                        bg-[var(--hover-bg)] border border-[var(--border-color)]"
-                >
-                    Edit Variables
-                </button>
+                <Panel />
                 <button
                     className="rounded-[var(--rounded-border)] w-10 h-10 grid place-items-center 
                         bg-[var(--hover-bg)] border border-[var(--border-color)]"

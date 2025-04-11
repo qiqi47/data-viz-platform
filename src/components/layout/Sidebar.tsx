@@ -40,10 +40,7 @@ export function Sidebar() {
     return (
         <div className="w-20 bg-[var(--theme-color)] flex flex-col items-center justify-center py-4">
             <div className="flex flex-col items-center space-y-6 flex-1 mt-8">
-                <button
-                    key={menu}
-                    className="rounded-[var(--rounded-border)] w-10 h-10 grid place-items-center"
-                >
+                <button key={menu} className="button">
                     <img src={menu} alt="Menu" className="filter brightness-0 invert" />
                 </button>
                 {icons.map((item, key) => {
@@ -51,10 +48,8 @@ export function Sidebar() {
                         <button
                             key={key}
                             onClick={() => setCurrent(item.label)}
-                            className={`rounded-[var(--rounded-border)] w-10 h-10 grid place-items-center ${
-                                current === item.label
-                                    ? 'bg-[var(--hover-bg)] border border-[var(--border-color)]'
-                                    : ''
+                            className={`w-10 h-10 ${
+                                current === item.label ? 'buttonSelected' : 'button'
                             }`}
                         >
                             <img
@@ -68,7 +63,7 @@ export function Sidebar() {
                     );
                 })}
             </div>
-            <button key={user} className="w-10 h-10 grid place-items-center">
+            <button key={user} className="button w-10 h-10">
                 <img src={user} alt="user profile" className="filter brightness-0 invert" />
             </button>
         </div>
