@@ -15,39 +15,39 @@ export function ScenarioResults() {
                 </div>
                 <button
                     onClick={() => setExpanded(!expanded)}
-                    className="px-2 py-1 rounded-full hover:bg-[#242424] border border-[var(--scenario-results-text)]"
+                    className="greenButton w-10 rounded-[50%]"
                 >
                     {expanded ? (
-                        <ChevronUp className="h-5 w-5 text-[var(--scenario-results-text)]" />
+                        <ChevronUp className="h-5 w-5 text-[var(--green-border)]" />
                     ) : (
-                        <ChevronDown className="h-5 w-5 text-[var(--scenario-results-text)]" />
+                        <ChevronDown className="h-5 w-5 text-[var(--green-border)]" />
                     )}
                 </button>
             </div>
 
             {expanded && (
                 <div className="space-y-3">
-                    <div className="border border-[var(--scenario-results-text)] bg-[#18181a] rounded-md px-6 py-[15px]">
+                    <div className="border border-[var(--green-border)] bg-[#18181a] rounded-md px-6 py-[15px]">
                         <div className="flex justify-between items-center">
-                            <p className="text-[#C9FF3B] text-[16px]">
+                            <p className="text-[var(--green-border)] text-[16px]">
                                 The best found configuration based on profit is characterized by
                                 11 zones (max) with charging stations and 48 total number of
                                 poles.
                             </p>
-                            <button className="text-[#C9FF3B]">
+                            <button className="text-[var(--green-border)]">
                                 <MoreHorizontal className="h-5 w-5" />
                             </button>
                         </div>
                     </div>
 
-                    <div className="border border-[var(--scenario-results-text)] bg-[#18181a] rounded-md px-6 py-[15px]">
+                    <div className="border border-[var(--green-border)] bg-[#18181a] rounded-md px-6 py-[15px]">
                         <div className="flex justify-between items-center">
-                            <p className="text-[#B3E237] text-[16px]">
+                            <p className="text-[var(--green-border)] text-[16px]">
                                 The best found configuration based on satisfied demand is
                                 characterized by 11 zones (max) with charging stations and 48
                                 total number of poles.
                             </p>
-                            <button className="text-[var(--scenario-results-text)]">
+                            <button className="text-[var(--green-border)]">
                                 <MoreHorizontal className="h-5 w-5" />
                             </button>
                         </div>
