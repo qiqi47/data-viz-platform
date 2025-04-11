@@ -14,3 +14,15 @@ export interface tabType {
     label: string;
     value: string;
 }
+
+export interface VariableCategory {
+    title: string;
+    items: Array<{ name: string; selected: boolean }>;
+    onItemClick: (item: string) => void;
+}
+
+export interface VariableItemProps {
+    name: string;
+    selected?: boolean;
+    onClick?: () => void;
+}

@@ -7,9 +7,10 @@ import {
     SheetTrigger,
 } from '@/components/ui/sheet';
 import { useState, useEffect } from 'react';
-import { Search } from 'lucide-react';
+import { Check, Search } from 'lucide-react';
 import star from '../../assets/icons/star.svg';
 import rerun from '../../assets/icons/rerun.svg';
+import { VariableCategory, VariableItemProps } from '../../types/Types';
 const Panel = () => {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth || 0);
     const [open, setOpen] = useState<boolean>(false);
@@ -25,6 +26,40 @@ const Panel = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+
+    const VariableItem = ({ name, selected = false, onClick }: VariableItemProps) => {
+        return (
+            <button
+                className={`px-3 py-1 rounded-full text-sm flex items-center gap-1 transition-colors ${
+                    selected
+                        ? 'bg-[#242424] text-[#c8e972] border border-[#c8e972]'
+                        : 'bg-[#242424] text-white border border-transparent hover:border-[#575757]'
+                }`}
+                onClick={onClick}
+            >
+                {name}
+                {selected && <Check className="h-3 w-3 text-[#c8e972]" />}
+            </button>
+        );
+    };
+
+    const variableCategory = ({ title, items, onItemClick }: VariableCategory) => {
+        return (
+            <div className="mb-4">
+                <h3 className="text-sm text-[#959595] mb-2">{title}</h3>
+                <div className="flex flex-wrap gap-2">
+                    {items.map((item) => (
+                        <VariableItem
+                            key={item.name}
+                            name={item.name}
+                            selected={item.selected}
+                            onClick={() => onItemClick?.(item.name)}
+                        />
+                    ))}
+                </div>
+            </div>
+        );
+    };
 
     return (
         <div>
