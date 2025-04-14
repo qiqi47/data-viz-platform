@@ -7,13 +7,25 @@ import {
     SheetTrigger,
 } from '@/components/ui/sheet';
 import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Check, Search } from 'lucide-react';
 import star from '../../assets/icons/star.svg';
 import rerun from '../../assets/icons/rerun.svg';
-import { VariableCategory, VariableItemProps } from '../../types/Types';
+import { VariableCategory as VariableCategoryType, VariableItemProps } from '../../types/Types';
+import {
+    toggleVariableSelection,
+    resetAllVariables,
+    VariableState,
+} from '../../store/variablesSlice';
+import { RootState, AppDispatch } from '../../store';
+
 const Panel = () => {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth || 0);
     const [open, setOpen] = useState<boolean>(false);
+    const dispatch = useDispatch<AppDispatch>();
+    const variables = useSelector((state: RootState) => state.variables) as VariableState;
+    const [search, setSearch] = useState<string>('');
+
     useEffect(() => {
         const handleResize = () => {
             setScreenWidth(window.innerWidth);
@@ -26,6 +38,14 @@ const Panel = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+
+    const handleItemClick = (category: keyof VariableState, name: string) => {
+        dispatch(toggleVariableSelection({ category, name }));
+    };
+
+    const handleReset = () => {
+        dispatch(resetAllVariables());
+    };
 
     const VariableItem = ({ name, selected = false, onClick }: VariableItemProps) => {
         return (
@@ -43,7 +63,7 @@ const Panel = () => {
         );
     };
 
-    const variableCategory = ({ title, items, onItemClick }: VariableCategory) => {
+    const VariableCategory = ({ title, items, onItemClick }: VariableCategoryType) => {
         return (
             <div className="mb-4">
                 <h3 className="text-sm text-[#959595] mb-2">{title}</h3>
@@ -94,13 +114,18 @@ const Panel = () => {
                                         type="text"
                                         placeholder="Search"
                                         className="input w-full"
+                                        value={search}
+                                        onChange={(e) => setSearch(e.target.value)}
                                     />
                                 </div>
                                 <button className="buttonSelected text-white h-9 px-7 flex flex-row gap-2 ">
                                     <img src={star} className="filter brightness-0 invert" />
                                     <span>Autofill</span>
                                 </button>
-                                <button className="greenButton h-9 px-7 flex flex-row gap-2 ">
+                                <button
+                                    className="greenButton h-9 px-7 flex flex-row gap-2"
+                                    onClick={handleReset}
+                                >
                                     <img src={rerun} />
                                     Rerun
                                 </button>
@@ -111,6 +136,25 @@ const Panel = () => {
                             account and remove your data from our servers.
                         </SheetDescription>
                     </SheetHeader>
+                    <div className="p-4 flex-1 overflow-y-auto">
+                        <VariableCategory
+                            title="Variable category 1"
+                            items={variables.category1}
+                            onItemClick={(name) => handleItemClick('category1', name)}
+                        />
+
+                        <VariableCategory
+                            title="Variable Category 2"
+                            items={variables.category2}
+                            onItemClick={(name) => handleItemClick('category2', name)}
+                        />
+
+                        <VariableCategory
+                            title="Variable Category 3"
+                            items={variables.category3}
+                            onItemClick={(name) => handleItemClick('category3', name)}
+                        />
+                    </div>
                 </SheetContent>
             </Sheet>
         </div>

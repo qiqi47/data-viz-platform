@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
+import { Provider } from 'react-redux';
+import { store } from './store';
 import Login from './Login.tsx';
 import AuthRoute from './AuthRoute.tsx';
 import Dashboard from './screens/Dashboard.tsx';
@@ -19,19 +21,21 @@ initializeApp(firebaseConfig);
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <Router>
-            <Routes>
-                <Route
-                    path="/"
-                    element={
-                        <AuthRoute>
-                            <Dashboard />
-                        </AuthRoute>
-                    }
-                />
-                <Route path="*" element={<Navigate to="/" />} />
-                <Route path="/login" element={<Login />} />
-            </Routes>
-        </Router>
+        <Provider store={store}>
+            <Router>
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <AuthRoute>
+                                <Dashboard />
+                            </AuthRoute>
+                        }
+                    />
+                    <Route path="*" element={<Navigate to="/" />} />
+                    <Route path="/login" element={<Login />} />
+                </Routes>
+            </Router>
+        </Provider>
     </StrictMode>,
 );
