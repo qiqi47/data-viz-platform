@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Chart } from '../ui/Chart';
 import { ChevronDown } from 'lucide-react';
+import { Button } from '../ui/button';
 
 const chartData = [
     { name: 'Apr', value: 20000 },
@@ -22,10 +23,10 @@ export function ChartSection() {
                 <div className="p-4 flex items-center justify-between">
                     <div className="flex items-center justify-end w-full">
                         <div className="relative">
-                            <button className="px-2 py-1 buttonSelected">
+                            <Button className="px-2 py-1 buttonSelected">
                                 {metricType}
                                 <ChevronDown className="h-4 w-4" />
-                            </button>
+                            </Button>
                         </div>
                     </div>
                 </div>

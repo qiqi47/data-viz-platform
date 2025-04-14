@@ -1,6 +1,6 @@
+import { History, Share } from 'lucide-react';
 import flash from '../../assets/icons/flash.svg';
-import history from '../../assets/icons/history.svg';
-import share from '../../assets/icons/share.svg';
+import { Button } from '../ui/button';
 import Panel from './Panel';
 
 const ChargingStationHeader = () => {
@@ -14,20 +14,20 @@ const ChargingStationHeader = () => {
                 />
                 <h1 className="text-white">Charging Station</h1>
             </div>
-            <div className="flex space-x-2">
-                <button
+            <div className="flex space-x-2 items-center justify-center">
+                <Button
                     className="rounded-[var(--rounded-border)] w-10 h-10 grid place-items-center 
                         bg-[var(--hover-bg)] border border-[var(--border-color)]"
                 >
-                    <img src={history} alt="history" />
-                </button>
+                    <History className="text-[var(--button-color)]" />
+                </Button>
                 <Panel />
-                <button
+                <Button
                     className="rounded-[var(--rounded-border)] w-10 h-10 grid place-items-center 
                         bg-[var(--hover-bg)] border border-[var(--border-color)]"
                 >
-                    <img src={share} alt="share" />
-                </button>
+                    <Share className="text-[var(--button-color)]" />
+                </Button>
             </div>
         </div>
     );

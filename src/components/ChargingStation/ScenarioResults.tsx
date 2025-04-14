@@ -1,6 +1,7 @@
 import { ChevronDown, ChevronUp, MoreHorizontal } from 'lucide-react';
 import { useState } from 'react';
 import star from '../../assets/icons/star.svg';
+import { Button } from '../ui/button';
 export function ScenarioResults() {
     const [expanded, setExpanded] = useState<boolean>(true);
 
@@ -13,7 +14,7 @@ export function ScenarioResults() {
                         Best Scenario Results
                     </h2>
                 </div>
-                <button
+                <Button
                     onClick={() => setExpanded(!expanded)}
                     className="border-[var(--green-border)] border-1 w-12 items-center justify-center flex rounded-4xl h-8"
                 >
@@ -22,7 +23,7 @@ export function ScenarioResults() {
                     ) : (
                         <ChevronDown className="h-5 w-5 text-[var(--green-border)]" />
                     )}
-                </button>
+                </Button>
             </div>
 
             {expanded && (
@@ -34,9 +35,9 @@ export function ScenarioResults() {
                                 11 zones (max) with charging stations and 48 total number of
                                 poles.
                             </p>
-                            <button className="text-[var(--green-border)]">
+                            <Button className="text-[var(--green-border)]">
                                 <MoreHorizontal className="h-5 w-5" />
-                            </button>
+                            </Button>
                         </div>
                     </div>
 
@@ -47,9 +48,9 @@ export function ScenarioResults() {
                                 characterized by 11 zones (max) with charging stations and 48
                                 total number of poles.
                             </p>
-                            <button className="text-[var(--green-border)]">
+                            <Button className="text-[var(--green-border)]">
                                 <MoreHorizontal className="h-5 w-5" />
-                            </button>
+                            </Button>
                         </div>
                     </div>
                 </div>

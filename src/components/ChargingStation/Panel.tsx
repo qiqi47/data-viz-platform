@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/sheet';
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Check, Search, ChevronDown, Info } from 'lucide-react';
+import { Check, Search, ChevronDown, Info, Edit } from 'lucide-react';
 import star from '../../assets/icons/star.svg';
 import rerun from '../../assets/icons/rerun.svg';
 import { VariableCategory as VariableCategoryType, VariableItemProps } from '../../types/Types';
@@ -17,7 +17,7 @@ import {
     VariableState,
 } from '../../store/variablesSlice';
 import { RootState, AppDispatch } from '../../store';
-
+import { Button } from '../ui/button';
 // Variable explanations
 const variableExplanations: Record<string, string> = {
     Carbon: 'Total carbon emissions measured in metric tons CO2 equivalent (tCO2e) from vehicle operations and charging infrastructure.',
@@ -102,7 +102,7 @@ const Panel = () => {
         const isInExplanations = variableExplanations[name] !== undefined;
 
         return (
-            <button
+            <Button
                 className={`px-3 py-1 rounded-full text-sm flex items-center gap-1 transition-colors ${
                     selected
                         ? 'bg-[var(--green)] text-[#c8e972] border border-[#c8e972]'
@@ -119,7 +119,7 @@ const Panel = () => {
                         <Check className="h-3 w-3 text-[#c8e972]" />
                     </div>
                 )}
-            </button>
+            </Button>
         );
     };
 
@@ -149,12 +149,10 @@ const Panel = () => {
                 onOpenChange={setOpen}
             >
                 <SheetTrigger asChild>
-                    <button
-                        className="rounded-[var(--rounded-border)] px-4 h-10 place-items-center 
-                        bg-[var(--hover-bg)] border border-[var(--border-color)]"
-                    >
-                        Edit <span className="hidden sm:inline">Variables</span>
-                    </button>
+                    <Button className="buttonSelected h-[38px]">
+                        <Edit className="text-[var(--button-color)] sm:hidden" />
+                        <span className="hidden sm:inline"> Edit Variables</span>
+                    </Button>
                 </SheetTrigger>
                 <SheetContent
                     className="w-full h-full sm:max-w-[691px] bg-[var(--theme-color)]"
@@ -178,17 +176,17 @@ const Panel = () => {
                                         onChange={(e) => setSearch(e.target.value)}
                                     />
                                 </div>
-                                <button className="buttonSelected text-white h-9 px-7 flex flex-row gap-2 ">
+                                <Button className="buttonSelected text-white h-9 px-7 flex flex-row gap-2 ">
                                     <img src={star} className="filter brightness-0 invert" />
                                     <span>Autofill</span>
-                                </button>
-                                <button
+                                </Button>
+                                <Button
                                     className="greenButton h-9 px-7 flex flex-row gap-2"
                                     onClick={handleReset}
                                 >
                                     <img src={rerun} />
                                     Rerun
-                                </button>
+                                </Button>
                             </div>
                         </SheetTitle>
                     </SheetHeader>
@@ -241,17 +239,17 @@ const Panel = () => {
                             <span className="text-[var(--green-border)]">
                                 Primary Variables
                             </span>
-                            <button className="border-[var(--green-border)] border-1 w-12 items-center justify-center flex rounded-4xl h-8">
+                            <Button className="border-[var(--green-border)] border-1 w-12 items-center justify-center flex rounded-4xl h-8">
                                 <ChevronDown className="h-5 w-5 text-[var(--green-border)]" />
-                            </button>
+                            </Button>
                         </div>
                         <div className="mx-8 p-4 max-h-3/5 flex flex-row items-center justify-between overflow-y-auto bg-[#161618] border border-[var(--border-color)] rounded-md overflow-hidden">
                             <span className="text-[var(--green-border)]">
                                 Secondary Variables
                             </span>
-                            <button className="border-[var(--green-border)] border-1 w-12 items-center justify-center flex rounded-4xl h-8">
+                            <Button className="border-[var(--green-border)] border-1 w-12 items-center justify-center flex rounded-4xl h-8">
                                 <ChevronDown className="h-5 w-5 text-[var(--green-border)]" />
-                            </button>
+                            </Button>
                         </div>
                     </div>
                 </SheetContent>

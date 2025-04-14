@@ -1,5 +1,6 @@
 import { Info, Plus } from 'lucide-react';
 import { MetricCardProps } from '../../types/Types';
+import { Button } from '../ui/button';
 
 const MetricCard = ({ title, value, hasInfoIcon = true }: MetricCardProps) => {
     return (
@@ -23,10 +24,10 @@ export function PerformanceMetrics() {
         <div className="h-full flex flex-col">
             <div className="flex items-center justify-between mb-4">
                 <h1 className="text-white">Key Performance Indicators</h1>
-                <button className="bg-[#212124] hover:bg-[#2a2a2d] text-white px-3 py-1 rounded flex items-center">
+                <Button className="buttonSelected">
                     <span className="mr-1">Variables</span>
                     <Plus className="h-4 w-4" />
-                </button>
+                </Button>
             </div>
             <div className="grid grid-cols-2 gap-4 flex-grow">
                 <MetricCard title="Infrastructure Units" value="€421.07" />

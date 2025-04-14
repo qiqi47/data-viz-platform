@@ -1,6 +1,7 @@
 import { Search } from 'lucide-react';
 import { NavbarProps } from '../../types/Types';
 import { useState } from 'react';
+import { Button } from '../ui/button';
 export function Navbar({ currentTab, onTabChange, tabs }: NavbarProps) {
     const [search, setSearch] = useState('');
     return (
@@ -8,7 +9,7 @@ export function Navbar({ currentTab, onTabChange, tabs }: NavbarProps) {
             <div className="flex flex-row space-x-2">
                 {tabs.map((item, key) => {
                     return (
-                        <button
+                        <Button
                             key={key}
                             onClick={() => onTabChange(item.value)}
                             className={`${
@@ -16,7 +17,7 @@ export function Navbar({ currentTab, onTabChange, tabs }: NavbarProps) {
                             } text-white px-4 py-2 rounded-md text-sm font-medium`}
                         >
                             {item.label}
-                        </button>
+                        </Button>
                     );
                 })}
             </div>

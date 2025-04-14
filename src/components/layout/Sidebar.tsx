@@ -7,6 +7,7 @@ import settings from '../../assets/icons/settings.svg';
 import user from '../../assets/icons/user.svg';
 import menu from '../../assets/icons/menu.svg';
 import { iconType } from '../../types/Types';
+import { Button } from '../ui/button';
 
 export function Sidebar() {
     const [current, setCurrent] = useState<string>('Home');
@@ -40,9 +41,9 @@ export function Sidebar() {
     return (
         <div className="w-20 bg-[var(--theme-color)] flex flex-col items-center justify-center mt-6">
             <div className="flex flex-col items-center space-y-6 flex-1">
-                <button key={menu} className="button">
+                <Button key={menu} className="button">
                     <img src={menu} alt="Menu" className="filter brightness-0 invert" />
-                </button>
+                </Button>
                 {icons.map((item, key) => {
                     return (
                         <button
