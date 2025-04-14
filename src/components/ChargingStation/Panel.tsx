@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/sheet';
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Check, Search, ChevronDown, Info, Edit } from 'lucide-react';
+import { Check, Search, ChevronDown, Info } from 'lucide-react';
 import star from '../../assets/icons/star.svg';
 import rerun from '../../assets/icons/rerun.svg';
 import { VariableCategory as VariableCategoryType, VariableItemProps } from '../../types/Types';
@@ -66,16 +66,10 @@ const Panel = () => {
     const handleItemClick = (category: keyof VariableState, name: string) => {
         dispatch(toggleVariableSelection({ category, name }));
 
-        // Track selected variables (max 2)
         if (selectedVariables.includes(name)) {
             setSelectedVariables((prev) => prev.filter((item) => item !== name));
         } else {
-            if (selectedVariables.length < 2) {
-                setSelectedVariables((prev) => [...prev, name]);
-            } else {
-                // If already 2 selected, replace the first one
-                setSelectedVariables((prev) => [prev[1], name]);
-            }
+            setSelectedVariables((prev) => [...prev, name]);
         }
     };
 

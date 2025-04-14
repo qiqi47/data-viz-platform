@@ -1,13 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './index';
 
-// Define a type for the variable item
 interface VariableItem {
     name: string;
     selected: boolean;
 }
 
-// Define the type for categories of variables
 export interface VariableState {
     category1: VariableItem[];
     category2: VariableItem[];
@@ -64,7 +62,6 @@ export const variablesSlice = createSlice({
 
 export const { toggleVariableSelection, resetAllVariables } = variablesSlice.actions;
 
-// Selectors
 export const selectVariables = (state: RootState) => state.variables;
 export const selectCategoryVariables = (state: RootState, category: keyof VariableState) =>
     (state.variables as VariableState)[category];
