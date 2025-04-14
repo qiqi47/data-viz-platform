@@ -12,7 +12,7 @@ const MetricCard = ({ title, value, hasInfoIcon = true }: MetricCardProps) => {
                 This describes variable two and what the shown data means.
             </p>
             <div className="flex justify-end">
-                <p className="text-4xl font-bold text-white mt-6">{value}</p>
+                <h1 className=" text-white mt-6">{value}</h1>
             </div>
         </div>
     );
@@ -22,7 +22,7 @@ export function PerformanceMetrics() {
     return (
         <div className="h-full flex flex-col">
             <div className="flex items-center justify-between mb-4">
-                <h2 className="text-2xl font-bold text-white">Key Performance Indicators</h2>
+                <h1 className="text-white">Key Performance Indicators</h1>
                 <button className="bg-[#212124] hover:bg-[#2a2a2d] text-white px-3 py-1 rounded flex items-center">
                     <span className="mr-1">Variables</span>
                     <Plus className="h-4 w-4" />

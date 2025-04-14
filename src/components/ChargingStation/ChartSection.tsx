@@ -17,7 +17,7 @@ export function ChartSection() {
 
     return (
         <div>
-            <h2 className="text-2xl font-bold text-white mb-4">Graphs</h2>
+            <h1 className="text-white mb-4">Graphs</h1>
             <div className="bg-[#18181a] border border-[#262628] rounded-md overflow-hidden h-full">
                 <div className="p-4 flex items-center justify-between">
                     <div className="flex items-center justify-end w-full">

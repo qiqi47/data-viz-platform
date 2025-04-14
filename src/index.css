@@ -96,7 +96,15 @@ button:hover {
 h1 {
     font-size: 2rem;
     line-height: 150%;
+    font-weight: 700;
 }
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
 /* button:focus,
 button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;

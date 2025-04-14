@@ -38,8 +38,8 @@ export function Sidebar() {
         },
     ];
     return (
-        <div className="w-20 bg-[var(--theme-color)] flex flex-col items-center justify-center py-4">
-            <div className="flex flex-col items-center space-y-6 flex-1 mt-8">
+        <div className="w-20 bg-[var(--theme-color)] flex flex-col items-center justify-center mt-6">
+            <div className="flex flex-col items-center space-y-6 flex-1">
                 <button key={menu} className="button">
                     <img src={menu} alt="Menu" className="filter brightness-0 invert" />
                 </button>
