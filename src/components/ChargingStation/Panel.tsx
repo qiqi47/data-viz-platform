@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/sheet';
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Check, Search, ChevronDown } from 'lucide-react';
+import { Check, Search, ChevronDown, Info } from 'lucide-react';
 import star from '../../assets/icons/star.svg';
 import rerun from '../../assets/icons/rerun.svg';
 import { VariableCategory as VariableCategoryType, VariableItemProps } from '../../types/Types';
@@ -223,8 +223,9 @@ const Panel = () => {
                                     <h3 className="text-white font-semibold">
                                         {hoveredVariable}
                                     </h3>
+                                    <Info className="text-white" />
                                 </div>
-                                <p className="text-sm text-[#D5D5D5] p-4">
+                                <p className="text-sm text-[#D5D5D5] px-4 mb-4">
                                     {variableExplanations[hoveredVariable]}
                                 </p>
                             </div>
