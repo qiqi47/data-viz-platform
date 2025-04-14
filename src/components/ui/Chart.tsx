@@ -43,7 +43,7 @@ export function Chart({
     const CustomTooltip = ({ active, payload, label }: any) => {
         if (active && payload && payload.length) {
             return (
-                <div className="bg-[#1a1a1c] p-3 border border-[#333] rounded-md shadow-lg">
+                <div className="bg-[#1a1a1c] p-3 border border-[#333] rounded-md shadow-lg fade-in">
                     <p className="text-[var(--green-border)] font-medium">{`${label}`}</p>
                     <p className="text-white font-bold">{`$${payload[0].value.toLocaleString()}`}</p>
                 </div>

@@ -198,57 +198,67 @@ const Panel = () => {
                             </div>
                         </SheetTitle>
                     </SheetHeader>
-                    <div className="mx-8 p-4 h-full flex flex-col bg-[#161618] border border-[var(--border-color)] rounded-md">
-                        <div className="p-3">
-                            <VariableCategory
-                                title="Variable category 1"
-                                items={variables.category1}
-                                onItemClick={(name) => handleItemClick('category1', name)}
-                            />
-                        </div>
-
-                        <div>
+                    <div className="flex flex-col gap-4 overflow-y-auto">
+                        <div className="mx-8 p-4 h-full flex flex-col bg-[#161618] border border-[var(--border-color)] rounded-md">
                             <div className="p-3">
                                 <VariableCategory
-                                    title="Variable Category 2"
-                                    items={variables.category2}
-                                    onItemClick={(name) => handleItemClick('category2', name)}
-                                />
-
-                                <VariableCategory
-                                    title="Variable Category 3"
-                                    items={variables.category3}
-                                    onItemClick={(name) => handleItemClick('category3', name)}
+                                    title="Variable category 1"
+                                    items={variables.category1}
+                                    onItemClick={(name) => handleItemClick('category1', name)}
                                 />
                             </div>
-                        </div>
 
-                        {/* Explanation */}
-                        {showExplanation && hoveredVariable && (
-                            <div className="mt-auto p-4 border-t border-[var(--border-color)] bg-[#222324] -mx-4 -mb-4 px-4">
-                                <div className="flex items-center gap-2 mb-2 p-4">
-                                    <h3 className="text-white font-semibold">
-                                        {hoveredVariable}
-                                    </h3>
-                                    <Info className="text-white" />
+                            <div>
+                                <div className="p-3">
+                                    <VariableCategory
+                                        title="Variable Category 2"
+                                        items={variables.category2}
+                                        onItemClick={(name) =>
+                                            handleItemClick('category2', name)
+                                        }
+                                    />
+
+                                    <VariableCategory
+                                        title="Variable Category 3"
+                                        items={variables.category3}
+                                        onItemClick={(name) =>
+                                            handleItemClick('category3', name)
+                                        }
+                                    />
                                 </div>
-                                <p className="text-sm text-[#D5D5D5] px-4 mb-4">
-                                    {variableExplanations[hoveredVariable]}
-                                </p>
                             </div>
-                        )}
-                    </div>
-                    <div className="mx-8 p-4 max-h-3/5 flex flex-row items-center justify-between overflow-y-auto bg-[#161618] border border-[var(--border-color)] rounded-md overflow-hidden">
-                        <span className="text-[var(--green-border)]">Primary Variables</span>
-                        <button className="border-[var(--green-border)] border-1 w-12 items-center justify-center flex rounded-4xl h-8">
-                            <ChevronDown className="h-5 w-5 text-[var(--green-border)]" />
-                        </button>
-                    </div>
-                    <div className="mx-8 p-4 max-h-3/5 flex flex-row items-center justify-between overflow-y-auto bg-[#161618] border border-[var(--border-color)] rounded-md overflow-hidden">
-                        <span className="text-[var(--green-border)]">Secondary Variables</span>
-                        <button className="border-[var(--green-border)] border-1 w-12 items-center justify-center flex rounded-4xl h-8">
-                            <ChevronDown className="h-5 w-5 text-[var(--green-border)]" />
-                        </button>
+
+                            {/* Explanation */}
+                            {showExplanation && hoveredVariable && (
+                                <div className="mt-auto p-4 border-t border-[var(--border-color)] bg-[#222324] -mx-4 -mb-4 px-4">
+                                    <div className="flex items-center gap-2 mb-2 p-4">
+                                        <h3 className="text-white font-semibold">
+                                            {hoveredVariable}
+                                        </h3>
+                                        <Info className="text-white" />
+                                    </div>
+                                    <p className="text-sm text-[#D5D5D5] px-4 mb-4">
+                                        {variableExplanations[hoveredVariable]}
+                                    </p>
+                                </div>
+                            )}
+                        </div>
+                        <div className="mx-8 p-4 max-h-3/5 flex flex-row items-center justify-between overflow-y-auto bg-[#161618] border border-[var(--border-color)] rounded-md overflow-hidden">
+                            <span className="text-[var(--green-border)]">
+                                Primary Variables
+                            </span>
+                            <button className="border-[var(--green-border)] border-1 w-12 items-center justify-center flex rounded-4xl h-8">
+                                <ChevronDown className="h-5 w-5 text-[var(--green-border)]" />
+                            </button>
+                        </div>
+                        <div className="mx-8 p-4 max-h-3/5 flex flex-row items-center justify-between overflow-y-auto bg-[#161618] border border-[var(--border-color)] rounded-md overflow-hidden">
+                            <span className="text-[var(--green-border)]">
+                                Secondary Variables
+                            </span>
+                            <button className="border-[var(--green-border)] border-1 w-12 items-center justify-center flex rounded-4xl h-8">
+                                <ChevronDown className="h-5 w-5 text-[var(--green-border)]" />
+                            </button>
+                        </div>
                     </div>
                 </SheetContent>
             </Sheet>
