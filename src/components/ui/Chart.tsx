@@ -11,7 +11,6 @@ import {
     YAxis,
 } from 'recharts';
 
-// Sample data for demonstration
 const sampleData = [
     { name: 'Apr', value: 30000 },
     { name: 'May', value: 50000 },
@@ -26,7 +25,7 @@ export function Chart({
     data = sampleData,
     dataKey = 'value',
     xAxisKey = 'name',
-    color = '#DCFF7F',
+    color = 'var(--green-border)',
     height = 300,
     showArea = false,
     showTooltip = true,
@@ -45,7 +44,7 @@ export function Chart({
         if (active && payload && payload.length) {
             return (
                 <div className="bg-[#1a1a1c] p-3 border border-[#333] rounded-md shadow-lg">
-                    <p className="text-[#DCFF7F] font-medium">{`${label}`}</p>
+                    <p className="text-[var(--green-border)] font-medium">{`${label}`}</p>
                     <p className="text-white font-bold">{`$${payload[0].value.toLocaleString()}`}</p>
                 </div>
             );
