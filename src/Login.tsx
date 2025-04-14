@@ -84,11 +84,11 @@ const Login = () => {
                     {/* Button to log in with email and password */}
                     <div className="w-full flex flex-col mb-4">
                         <button
-                            className="w-full border bg-black border-white my-2 font-semibold rounded-md p-4 text-center flex items-center justify-center cursor-pointer"
+                            className="w-full border bg-black border-white my-2 text-white font-semibold rounded-md p-4 text-center flex items-center justify-center cursor-pointer"
                             onClick={signInWithEmail}
                             disabled={authing}
                         >
-                            Log In With Email and Password
+                            Log In With Email and Password (Not available yet)
                         </button>
                     </div>
 
