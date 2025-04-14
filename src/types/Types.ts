@@ -1,3 +1,5 @@
+import { LucideIcon } from 'lucide-react';
+
 export interface iconType {
     src: string;
     label: string;
@@ -7,7 +9,7 @@ export interface iconType {
 export interface NavbarProps {
     currentTab: string;
     onTabChange: (tab: string) => void;
-    tabs: { label: string; value: string }[];
+    tabs: { label: string; value: string; icon?: LucideIcon }[];
 }
 
 export interface tabType {

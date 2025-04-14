@@ -4,22 +4,30 @@ import { Sidebar } from '../layout/Sidebar';
 import { ChargingStations } from './ChargingStations';
 import { FleetSizing } from '../FleetSizing';
 import { Parking } from '../Parking';
-import { tabType } from '../../types/Types';
+import { PlugZap, Truck, ParkingCircle } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 export function ChargingStationDashboard() {
     const [currentTab, setCurrentTab] = useState<string>('charging-stations');
-    const tabs: tabType[] = [
+    const tabs: Array<{
+        label: string;
+        value: string;
+        icon: LucideIcon;
+    }> = [
         {
             label: 'Charging Stations',
             value: 'charging-stations',
+            icon: PlugZap,
         },
         {
             label: 'Fleet Sizing',
             value: 'fleet-sizing',
+            icon: Truck,
         },
         {
             label: 'Parking',
             value: 'parking',
+            icon: ParkingCircle,
         },
     ];
     const renderContent = useCallback(() => {
