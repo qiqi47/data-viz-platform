@@ -3,7 +3,7 @@ import { MetricCardProps } from '../../types/Types';
 
 const MetricCard = ({ title, value, hasInfoIcon = true }: MetricCardProps) => {
     return (
-        <div className="bg-[#18181a] border border-[#262628] rounded-md p-4">
+        <div className="bg-[#18181a] border border-[#262628] rounded-md p-7">
             <div className="flex items-center justify-between mb-2">
                 <p className="text-lg text-white">{title}</p>
                 {hasInfoIcon && <Info className="h-5 w-5 text-[#999]" />}
@@ -11,7 +11,9 @@ const MetricCard = ({ title, value, hasInfoIcon = true }: MetricCardProps) => {
             <p className="text-xs text-[#999] mt-1">
                 This describes variable two and what the shown data means.
             </p>
-            <p className="text-4xl font-bold text-white mt-6">{value}</p>
+            <div className="flex justify-end">
+                <p className="text-4xl font-bold text-white mt-6">{value}</p>
+            </div>
         </div>
     );
 };
