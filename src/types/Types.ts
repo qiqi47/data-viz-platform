@@ -26,3 +26,20 @@ export interface VariableItemProps {
     selected?: boolean;
     onClick?: () => void;
 }
+
+export interface MetricCardProps {
+    title: string;
+    value: string;
+    hasInfoIcon?: boolean;
+}
+
+export interface ChartProps {
+    data?: Array<any>;
+    dataKey?: string;
+    xAxisKey?: string;
+    yAxisKey?: string;
+    color?: string;
+    height?: number;
+    showArea?: boolean;
+    showTooltip?: boolean;
+}
