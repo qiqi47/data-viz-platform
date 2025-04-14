@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/sheet';
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Check, Search, ChevronDown, Info } from 'lucide-react';
+import { Check, Search, ChevronDown, Info, Edit } from 'lucide-react';
 import star from '../../assets/icons/star.svg';
 import rerun from '../../assets/icons/rerun.svg';
 import { VariableCategory as VariableCategoryType, VariableItemProps } from '../../types/Types';
@@ -149,7 +149,7 @@ const Panel = () => {
                         className="rounded-[var(--rounded-border)] px-4 h-10 place-items-center 
                         bg-[var(--hover-bg)] border border-[var(--border-color)]"
                     >
-                        Edit Variables
+                        Edit <span className="hidden sm:inline">Variables</span>
                     </button>
                 </SheetTrigger>
                 <SheetContent
