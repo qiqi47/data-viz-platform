@@ -52,13 +52,18 @@ const Panel = () => {
             <button
                 className={`px-3 py-1 rounded-full text-sm flex items-center gap-1 transition-colors ${
                     selected
-                        ? 'bg-[#242424] text-[#c8e972] border border-[#c8e972]'
-                        : 'bg-[#242424] text-white border border-transparent hover:border-[#575757]'
+                        ? 'bg-[var(--green)] text-[#c8e972] border border-[#c8e972]'
+                        : 'bg-[#262628] text-[#D5D5D5] border border-[var(--border-color)] hover:border-[#575757]'
                 }`}
                 onClick={onClick}
             >
                 {name}
-                {selected && <Check className="h-3 w-3 text-[#c8e972]" />}
+                {selected && (
+                    <div className="flex flex-row items-center gap-1">
+                        <img src={star} alt="star" className="h-3 w-3 text-[#c8e972]"></img>
+                        <Check className="h-3 w-3 text-[#c8e972]" />
+                    </div>
+                )}
             </button>
         );
     };
@@ -66,7 +71,7 @@ const Panel = () => {
     const VariableCategory = ({ title, items, onItemClick }: VariableCategoryType) => {
         return (
             <div className="mb-4">
-                <h3 className="text-sm text-[#959595] mb-2">{title}</h3>
+                <h3 className="text-sm text-[#D5D5D5] mb-2">{title}</h3>
                 <div className="flex flex-wrap gap-2">
                     {items.map((item) => (
                         <VariableItem
@@ -131,10 +136,6 @@ const Panel = () => {
                                 </button>
                             </div>
                         </SheetTitle>
-                        <SheetDescription className="m-4">
-                            This action cannot be undone. This will permanently delete your
-                            account and remove your data from our servers.
-                        </SheetDescription>
                     </SheetHeader>
                     <div className="p-4 flex-1 overflow-y-auto">
                         <VariableCategory
