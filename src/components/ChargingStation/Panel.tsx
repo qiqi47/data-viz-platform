@@ -1,14 +1,13 @@
 import {
     Sheet,
     SheetContent,
-    SheetDescription,
     SheetHeader,
     SheetTitle,
     SheetTrigger,
 } from '@/components/ui/sheet';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Check, Search } from 'lucide-react';
+import { Check, Search, ChevronDown } from 'lucide-react';
 import star from '../../assets/icons/star.svg';
 import rerun from '../../assets/icons/rerun.svg';
 import { VariableCategory as VariableCategoryType, VariableItemProps } from '../../types/Types';
@@ -19,12 +18,24 @@ import {
 } from '../../store/variablesSlice';
 import { RootState, AppDispatch } from '../../store';
 
+// Variable explanations
+const variableExplanations: Record<string, string> = {
+    'CO2 Distribution':
+        "But what truly sets Switch apart is its versatility. It can be used as a scooter, a bike, or even a skateboard, making it suitable for people of all ages. Whether you're a student, a professional, or a senior citizen, Switch adapts to your needs and lifestyle.",
+};
+
 const Panel = () => {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth || 0);
     const [open, setOpen] = useState<boolean>(false);
     const dispatch = useDispatch<AppDispatch>();
     const variables = useSelector((state: RootState) => state.variables) as VariableState;
     const [search, setSearch] = useState<string>('');
+    const [hoveredVariable, setHoveredVariable] = useState<string | null>(null);
+    const [showExplanation, setShowExplanation] = useState<boolean>(false);
+    const [selectedVariables, setSelectedVariables] = useState<string[]>([]);
+    const hoverTimerRef = useRef<NodeJS.Timeout | null>(null);
+    const [primaryOpen, setPrimaryOpen] = useState<boolean>(true);
+    const [secondaryOpen, setSecondaryOpen] = useState<boolean>(true);
 
     useEffect(() => {
         const handleResize = () => {
@@ -36,18 +47,58 @@ const Panel = () => {
         // Clean up event listener on component unmount
         return () => {
             window.removeEventListener('resize', handleResize);
+            if (hoverTimerRef.current) {
+                clearTimeout(hoverTimerRef.current);
+            }
         };
     }, []);
 
     const handleItemClick = (category: keyof VariableState, name: string) => {
         dispatch(toggleVariableSelection({ category, name }));
+
+        // Track selected variables (max 2)
+        if (selectedVariables.includes(name)) {
+            setSelectedVariables((prev) => prev.filter((item) => item !== name));
+        } else {
+            if (selectedVariables.length < 2) {
+                setSelectedVariables((prev) => [...prev, name]);
+            } else {
+                // If already 2 selected, replace the first one
+                setSelectedVariables((prev) => [prev[1], name]);
+            }
+        }
+    };
+
+    const handleVariableHover = (name: string) => {
+        setHoveredVariable(name);
+
+        if (hoverTimerRef.current) {
+            clearTimeout(hoverTimerRef.current);
+        }
+
+        hoverTimerRef.current = setTimeout(() => {
+            if (variableExplanations[name]) {
+                setShowExplanation(true);
+            }
+        }, 1500);
+    };
+
+    const handleVariableLeave = () => {
+        if (hoverTimerRef.current) {
+            clearTimeout(hoverTimerRef.current);
+        }
+        setHoveredVariable(null);
+        setShowExplanation(false);
     };
 
     const handleReset = () => {
         dispatch(resetAllVariables());
+        setSelectedVariables([]);
     };
 
     const VariableItem = ({ name, selected = false, onClick }: VariableItemProps) => {
+        const isInExplanations = variableExplanations[name] !== undefined;
+
         return (
             <button
                 className={`px-3 py-1 rounded-full text-sm flex items-center gap-1 transition-colors ${
@@ -56,6 +107,8 @@ const Panel = () => {
                         : 'bg-[#262628] text-[#D5D5D5] border border-[var(--border-color)] hover:border-[#575757]'
                 }`}
                 onClick={onClick}
+                onMouseEnter={() => isInExplanations && handleVariableHover(name)}
+                onMouseLeave={handleVariableLeave}
             >
                 {name}
                 {selected && (
@@ -137,24 +190,50 @@ const Panel = () => {
                             </div>
                         </SheetTitle>
                     </SheetHeader>
-                    <div className="p-4 flex-1 overflow-y-auto">
-                        <VariableCategory
-                            title="Variable category 1"
-                            items={variables.category1}
-                            onItemClick={(name) => handleItemClick('category1', name)}
-                        />
+                    <div className="mb-8 mx-8 p-4 max-h-3/5 flex-1 overflow-y-auto bg-[#1A1A1A] border border-[var(--border-color)] rounded-md overflow-hidden">
+                        {/* Primary Variables Card */}
 
-                        <VariableCategory
-                            title="Variable Category 2"
-                            items={variables.category2}
-                            onItemClick={(name) => handleItemClick('category2', name)}
-                        />
+                        <div className="p-3">
+                            <VariableCategory
+                                title="Variable category 1"
+                                items={variables.category1}
+                                onItemClick={(name) => handleItemClick('category1', name)}
+                            />
+                        </div>
 
-                        <VariableCategory
-                            title="Variable Category 3"
-                            items={variables.category3}
-                            onItemClick={(name) => handleItemClick('category3', name)}
-                        />
+                        {/* Secondary Variables Card */}
+                        <div>
+                            <div className="p-3">
+                                <VariableCategory
+                                    title="Variable Category 2"
+                                    items={variables.category2}
+                                    onItemClick={(name) => handleItemClick('category2', name)}
+                                />
+
+                                <VariableCategory
+                                    title="Variable Category 3"
+                                    items={variables.category3}
+                                    onItemClick={(name) => handleItemClick('category3', name)}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Explanation */}
+                        {showExplanation && hoveredVariable && (
+                            <div className="relative b-4 p-4">
+                                <div className="flex items-center gap-2 mb-2">
+                                    <h3 className="text-white font-semibold">
+                                        {hoveredVariable}
+                                    </h3>
+                                    <div className="bg-[#262628] rounded-full w-6 h-6 flex items-center justify-center text-xs text-white">
+                                        i
+                                    </div>
+                                </div>
+                                <p className="text-sm text-[#D5D5D5]">
+                                    {variableExplanations[hoveredVariable]}
+                                </p>
+                            </div>
+                        )}
                     </div>
                 </SheetContent>
             </Sheet>
