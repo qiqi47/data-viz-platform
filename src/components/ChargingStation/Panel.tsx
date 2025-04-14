@@ -34,8 +34,6 @@ const Panel = () => {
     const [showExplanation, setShowExplanation] = useState<boolean>(false);
     const [selectedVariables, setSelectedVariables] = useState<string[]>([]);
     const hoverTimerRef = useRef<NodeJS.Timeout | null>(null);
-    const [primaryOpen, setPrimaryOpen] = useState<boolean>(true);
-    const [secondaryOpen, setSecondaryOpen] = useState<boolean>(true);
 
     useEffect(() => {
         const handleResize = () => {
@@ -190,7 +188,7 @@ const Panel = () => {
                             </div>
                         </SheetTitle>
                     </SheetHeader>
-                    <div className="mb-8 mx-8 p-4 max-h-3/5 flex flex-col overflow-y-auto bg-[#1A1A1A] border border-[var(--border-color)] rounded-md overflow-hidden">
+                    <div className="mx-8 p-4 max-h-3/5 flex flex-col overflow-y-auto bg-[#161618] border border-[var(--border-color)] rounded-md overflow-hidden">
                         {/* Primary Variables Card */}
 
                         <div className="p-3">
@@ -231,6 +229,18 @@ const Panel = () => {
                                 </p>
                             </div>
                         )}
+                    </div>
+                    <div className="mx-8 p-4 max-h-3/5 flex flex-row items-center justify-between overflow-y-auto bg-[#161618] border border-[var(--border-color)] rounded-md overflow-hidden">
+                        <span className="text-[var(--green-border)]">Primary Variables</span>
+                        <button className="border-[var(--green-border)] border-1 w-12 items-center justify-center flex rounded-4xl h-8">
+                            <ChevronDown className="h-5 w-5 text-[var(--green-border)]" />
+                        </button>
+                    </div>
+                    <div className="mx-8 p-4 max-h-3/5 flex flex-row items-center justify-between overflow-y-auto bg-[#161618] border border-[var(--border-color)] rounded-md overflow-hidden">
+                        <span className="text-[var(--green-border)]">Secondary Variables</span>
+                        <button className="border-[var(--green-border)] border-1 w-12 items-center justify-center flex rounded-4xl h-8">
+                            <ChevronDown className="h-5 w-5 text-[var(--green-border)]" />
+                        </button>
                     </div>
                 </SheetContent>
             </Sheet>

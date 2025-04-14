@@ -15,7 +15,7 @@ export function ScenarioResults() {
                 </div>
                 <button
                     onClick={() => setExpanded(!expanded)}
-                    className="greenButton w-10 rounded-[50%]"
+                    className="border-[var(--green-border)] border-1 w-12 items-center justify-center flex rounded-4xl h-8"
                 >
                     {expanded ? (
                         <ChevronUp className="h-5 w-5 text-[var(--green-border)]" />
