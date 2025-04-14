@@ -20,8 +20,20 @@ import { RootState, AppDispatch } from '../../store';
 
 // Variable explanations
 const variableExplanations: Record<string, string> = {
+    Carbon: 'Total carbon emissions measured in metric tons CO2 equivalent (tCO2e) from vehicle operations and charging infrastructure.',
     'CO2 Distribution':
-        "But what truly sets Switch apart is its versatility. It can be used as a scooter, a bike, or even a skateboard, making it suitable for people of all ages. Whether you're a student, a professional, or a senior citizen, Switch adapts to your needs and lifestyle.",
+        'Geographic distribution of carbon emissions across different regions, helping identify high-impact areas for sustainability initiatives.',
+    'Fleet sizing':
+        'Optimal number of vehicles required to meet service demand while maintaining operational efficiency.',
+    'Parking Rate':
+        'Percentage of time vehicles spend parked at designated stations versus being in active service.',
+    'Barrier Rule':
+        'Regulatory constraints and operational rules affecting vehicle deployment and service coverage.',
+    'Request rate':
+        'Frequency of customer service requests per hour, indicating demand patterns and peak usage times.',
+    'Variable 1': 'Additional operational metric being monitored for performance optimization.',
+    'Variable 2': 'Secondary performance indicator tracking system efficiency.',
+    'Variable 3': 'Supplementary measurement for service quality assessment.',
 };
 
 const Panel = () => {
@@ -85,8 +97,6 @@ const Panel = () => {
         if (hoverTimerRef.current) {
             clearTimeout(hoverTimerRef.current);
         }
-        setHoveredVariable(null);
-        setShowExplanation(false);
     };
 
     const handleReset = () => {
@@ -188,9 +198,7 @@ const Panel = () => {
                             </div>
                         </SheetTitle>
                     </SheetHeader>
-                    <div className="mx-8 p-4 max-h-3/5 flex flex-col overflow-y-auto bg-[#161618] border border-[var(--border-color)] rounded-md overflow-hidden">
-                        {/* Primary Variables Card */}
-
+                    <div className="mx-8 p-4 h-full flex flex-col bg-[#161618] border border-[var(--border-color)] rounded-md">
                         <div className="p-3">
                             <VariableCategory
                                 title="Variable category 1"
@@ -199,7 +207,6 @@ const Panel = () => {
                             />
                         </div>
 
-                        {/* Secondary Variables Card */}
                         <div>
                             <div className="p-3">
                                 <VariableCategory
