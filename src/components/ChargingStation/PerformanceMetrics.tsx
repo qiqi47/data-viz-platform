@@ -2,12 +2,12 @@ import { Info, Plus } from 'lucide-react';
 import { MetricCardProps } from '../../types/Types';
 import { Button } from '../ui/button';
 
-const MetricCard = ({ title, value, hasInfoIcon = true }: MetricCardProps) => {
+const MetricCard = ({ title, value }: MetricCardProps) => {
     return (
         <div className="bg-[#18181a] border border-[#262628] rounded-md p-7">
             <div className="flex items-center justify-between mb-2">
                 <p className="text-lg text-white">{title}</p>
-                {hasInfoIcon && <Info className="h-5 w-5 text-[#999]" />}
+                <Info className="h-5 w-5 text-[var(--button-color)]" />
             </div>
             <p className="text-xs text-[#999] mt-1">
                 This describes variable two and what the shown data means.

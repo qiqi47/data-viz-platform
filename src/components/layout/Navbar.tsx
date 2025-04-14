@@ -12,9 +12,9 @@ export function Navbar({ currentTab, onTabChange, tabs }: NavbarProps) {
                         <Button
                             key={key}
                             onClick={() => onTabChange(item.value)}
-                            className={`${
+                            className={`rounded-sm ${
                                 currentTab === item.value ? 'buttonSelected' : 'button'
-                            } text-white px-4 py-2 rounded-md text-sm font-medium`}
+                            }`}
                         >
                             {item.label}
                         </Button>

@@ -227,9 +227,9 @@ const Panel = () => {
                                         <h3 className="text-white font-semibold">
                                             {hoveredVariable}
                                         </h3>
-                                        <Info className="text-white" />
+                                        <Info className="h-5 w-5 text-[var(--button-color)]" />
                                     </div>
-                                    <p className="text-sm text-[#D5D5D5] px-4 mb-4">
+                                    <p className="text-sm text-[#BBBBBB] px-4 mb-4">
                                         {variableExplanations[hoveredVariable]}
                                     </p>
                                 </div>
