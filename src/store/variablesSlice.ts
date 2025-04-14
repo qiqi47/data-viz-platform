@@ -1,17 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './index';
-
-interface VariableItem {
-    name: string;
-    selected: boolean;
-}
-
-export interface VariableState {
-    category1: VariableItem[];
-    category2: VariableItem[];
-    category3: VariableItem[];
-}
-
+import { VariableState } from '../types/Types';
 const initialState: VariableState = {
     category1: [
         { name: 'Carbon', selected: false },

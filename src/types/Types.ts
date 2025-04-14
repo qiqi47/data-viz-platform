@@ -45,3 +45,14 @@ export interface ChartProps {
     showArea?: boolean;
     showTooltip?: boolean;
 }
+
+export interface VariableItem {
+    name: string;
+    selected: boolean;
+}
+
+export interface VariableState {
+    category1: VariableItem[];
+    category2: VariableItem[];
+    category3: VariableItem[];
+}

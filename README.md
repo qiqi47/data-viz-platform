@@ -1,54 +1,55 @@
-# React + TypeScript + Vite
+# Data Visualization Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Setup Instructions
 
-Currently, two official plugins are available:
+### Environment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   Node.js (v18+)
+-   npm or yarn package manager
+-   Modern web browser (Chrome, Firefox, Safari)
 
-## Expanding the ESLint configuration
+### Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Clone the repository
+2. Install dependencies:
+    ```
+    npm install
+    ```
+3. Start the development server:
+    ```
+    npm run dev
+    ```
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Features Implemented
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+-   **Interactive Dashboard**: Tabbed interface for different data visualizations
+-   **Data Visualization**: Interactive charts using Recharts library
+-   **User Authentication**: Secure login with Firebase authentication
+-   **Responsive Design**: Works across desktop and mobile devices
+-   **State Management**: Redux toolkit for centralized data management
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Technical Decisions and Trade-offs
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+-   **React + Vite**: Chosen for fast development experience and quick startup times
+-   **Redux Toolkit**: Used for centralized state management, making it easier to track data changes
+-   **Firebase Authentication**: Provides secure user authentication without building a custom backend
+-   **Tailwind CSS**: Utility-first CSS framework for rapid UI development
+-   **TypeScript**: Added type safety and better developer experience at the cost of slightly increased development time
+-   **Recharts**: Lightweight charting library with good performance and customization options
+-   **Shadcn UI**: Utilized for high-quality, customizable components that follow Radix UI's accessibility patterns
+
+## Known Limitations
+
+-   Limited to predefined visualization types and data formats
+-   Demo data is used for visualizations; integration with real-time data sources pending
+-   Mobile optimization for complex visualizations is still in progress
+
+## Project Structure
+
+-   `/src/components` - Reusable UI components
+-   `/src/screens` - Main application screens
+-   `/src/lib` - Utility functions and helpers
+-   `/src/store` - Redux store configuration and slices
+-   `/src/types` - TypeScript type definitions
+-   `/src/assets` - Static assets like images and icons
+-   `/src/components/ui` - Shadcn UI components

@@ -11,13 +11,10 @@ import { Check, Search, ChevronDown, Info, Edit } from 'lucide-react';
 import star from '../../assets/icons/star.svg';
 import rerun from '../../assets/icons/rerun.svg';
 import { VariableCategory as VariableCategoryType, VariableItemProps } from '../../types/Types';
-import {
-    toggleVariableSelection,
-    resetAllVariables,
-    VariableState,
-} from '../../store/variablesSlice';
+import { toggleVariableSelection, resetAllVariables } from '../../store/variablesSlice';
 import { RootState, AppDispatch } from '../../store';
 import { Button } from '../ui/button';
+import { VariableState } from '../../types/Types';
 // Variable explanations
 const variableExplanations: Record<string, string> = {
     Carbon: 'Total carbon emissions measured in metric tons CO2 equivalent (tCO2e) from vehicle operations and charging infrastructure.',
