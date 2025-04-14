@@ -190,7 +190,7 @@ const Panel = () => {
                             </div>
                         </SheetTitle>
                     </SheetHeader>
-                    <div className="mb-8 mx-8 p-4 max-h-3/5 flex-1 overflow-y-auto bg-[#1A1A1A] border border-[var(--border-color)] rounded-md overflow-hidden">
+                    <div className="mb-8 mx-8 p-4 max-h-3/5 flex flex-col overflow-y-auto bg-[#1A1A1A] border border-[var(--border-color)] rounded-md overflow-hidden">
                         {/* Primary Variables Card */}
 
                         <div className="p-3">
@@ -220,16 +220,13 @@ const Panel = () => {
 
                         {/* Explanation */}
                         {showExplanation && hoveredVariable && (
-                            <div className="relative b-4 p-4">
-                                <div className="flex items-center gap-2 mb-2">
+                            <div className="mt-auto p-4 border-t border-[var(--border-color)] bg-[#222324] -mx-4 -mb-4 px-4">
+                                <div className="flex items-center gap-2 mb-2 p-4">
                                     <h3 className="text-white font-semibold">
                                         {hoveredVariable}
                                     </h3>
-                                    <div className="bg-[#262628] rounded-full w-6 h-6 flex items-center justify-center text-xs text-white">
-                                        i
-                                    </div>
                                 </div>
-                                <p className="text-sm text-[#D5D5D5]">
+                                <p className="text-sm text-[#D5D5D5] p-4">
                                     {variableExplanations[hoveredVariable]}
                                 </p>
                             </div>
