@@ -32,7 +32,7 @@ export function Chart({
 }: ChartProps) {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-    const handleMouseEnter = (data: any, index: number) => {
+    const handleMouseEnter = (index: number) => {
         setActiveIndex(index);
     };
 
@@ -111,7 +111,7 @@ export function Chart({
 
                             return (
                                 <g
-                                    onMouseEnter={() => handleMouseEnter(props.payload, index)}
+                                    onMouseEnter={() => handleMouseEnter(props.payload)}
                                     className="transition-all duration-300"
                                 >
                                     {/* Larger outer circle (only visible on hover) */}

@@ -14,7 +14,7 @@ const chartData = [
 ];
 
 export function ChartSection() {
-    const [metricType, setMetricType] = useState<string>('Unsatisfied Demand %');
+    const [metricType] = useState<string>('Unsatisfied Demand %');
 
     return (
         <div>
