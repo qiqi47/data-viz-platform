@@ -9,13 +9,13 @@ import Login from './Login.tsx';
 import AuthRoute from './AuthRoute.tsx';
 import Dashboard from './screens/Dashboard.tsx';
 const firebaseConfig = {
-    apiKey: 'AIzaSyBPZ1GoTrQKlPp_OMln_wO-nToSMtEYdnY',
-    authDomain: 'answerai-93907.firebaseapp.com',
-    projectId: 'answerai-93907',
-    storageBucket: 'answerai-93907.firebasestorage.app',
-    messagingSenderId: '270487362193',
-    appId: '1:270487362193:web:cb507fef831a6253c33d30',
-    measurementId: 'G-6D8331C9C0',
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 initializeApp(firebaseConfig);
 
